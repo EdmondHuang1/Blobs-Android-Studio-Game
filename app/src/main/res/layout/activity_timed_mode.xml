@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/gamingLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GamingActivity">
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/gameBoard"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:clipToPadding="false"
+        android:padding="@dimen/item_offset"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.674" />
+
+    <TextView
+        android:id="@+id/score_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="Score   0"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.564"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/time_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="24dp"
+        android:text="Time   "
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/highscore_indicator" />
+
+    <Button
+        android:id="@+id/start_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_btn"
+        android:text="start"
+        android:onClick="play"
+        android:textColor="#ddd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/highscore_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:text="Highscore: 0"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/score_indicator"
+        app:layout_constraintHorizontal_bias="0.269"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.Group
+        android:id="@+id/game_over_group"
+        app:constraint_referenced_ids="
+            game_over_board,
+            game_over_main_menu_nav,
+            game_over_restart,
+            game_over_score,
+            game_over_highscore,
+            game_over_message"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:visibility="gone"
+        />
+
+    <ImageView
+        android:id="@+id/game_over_board"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498"
+        app:srcCompat="@drawable/rectangle_rounded" />
+
+    <Button
+        android:id="@+id/game_over_main_menu_nav"
+        android:layout_width="94dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/rounded_btn"
+        android:text="Main Menu"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="@+id/game_over_board"
+        app:layout_constraintEnd_toEndOf="@+id/game_over_board" />
+
+    <Button
+        android:id="@+id/game_over_restart"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/restart_button"
+        app:layout_constraintBottom_toBottomOf="@+id/game_over_board"
+        app:layout_constraintEnd_toStartOf="@+id/game_over_main_menu_nav"
+        app:layout_constraintStart_toStartOf="@+id/game_over_board" />
+
+    <TextView
+        android:id="@+id/game_over_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="100dp"
+        android:text="Score: "
+        android:textColor="#F3EAEA"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/game_over_board"
+        app:layout_constraintTop_toTopOf="@+id/game_over_board" />
+
+    <TextView
+        android:id="@+id/game_over_highscore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="Highscore: "
+        android:textColor="#F4F3F3"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/game_over_board"
+        app:layout_constraintTop_toBottomOf="@+id/game_over_score" />
+
+    <TextView
+        android:id="@+id/game_over_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:text="Game Over"
+        android:textColor="#EDE6E6"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/game_over_board"
+        app:layout_constraintStart_toStartOf="@+id/game_over_board"
+        app:layout_constraintTop_toTopOf="@+id/game_over_board" />
+
+    <Button
+        android:id="@+id/pause_button"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginLeft="65dp"
+        android:background="@drawable/pause_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/score_indicator"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <android.support.constraint.Group
+        android:id="@+id/pause_screen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="pause_board,
+        pause_main_menu_nav,
+        pause_resume_button,
+        pause_message,
+        pause_music_toggle,
+        pause_sound_toggle,
+        pause_restart"
+        android:visibility="gone"
+        />
+
+    <ImageView
+        android:id="@+id/pause_board"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498"
+        app:srcCompat="@drawable/rectangle_rounded" />
+
+    <Button
+        android:id="@+id/pause_main_menu_nav"
+        android:layout_width="94dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/rounded_btn"
+        android:text="Main Menu"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="@+id/pause_board"
+        app:layout_constraintEnd_toEndOf="@+id/pause_board" />
+
+    <Button
+        android:id="@+id/pause_resume_button"
+        android:layout_width="94dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/rounded_btn"
+        android:text="Resume"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="@+id/pause_board"
+        app:layout_constraintEnd_toStartOf="@+id/pause_main_menu_nav"
+        app:layout_constraintStart_toStartOf="@+id/pause_board" />
+
+    <TextView
+        android:id="@+id/pause_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:text="Paused"
+        android:textColor="#EDE6E6"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/pause_board"
+        app:layout_constraintStart_toStartOf="@+id/pause_board"
+        app:layout_constraintTop_toTopOf="@+id/pause_board" />
+
+    <Button
+        android:id="@+id/pause_music_toggle"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/music_unmuted"
+        app:layout_constraintBottom_toTopOf="@+id/pause_resume_button"
+        app:layout_constraintEnd_toStartOf="@+id/pause_sound_toggle" />
+
+    <Button
+        android:id="@+id/pause_sound_toggle"
+
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/sound_unmuted"
+
+        app:layout_constraintBottom_toTopOf="@+id/pause_main_menu_nav"
+        app:layout_constraintEnd_toEndOf="@+id/pause_board" />
+
+    <Button
+        android:id="@+id/pause_restart"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="45dp"
+        android:background="@drawable/restart_button"
+        app:layout_constraintBottom_toTopOf="@+id/pause_resume_button"
+        app:layout_constraintEnd_toStartOf="@+id/pause_music_toggle"
+        app:layout_constraintStart_toStartOf="@+id/pause_board" />
+
+
+</android.support.constraint.ConstraintLayout>
